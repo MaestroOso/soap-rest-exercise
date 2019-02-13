@@ -1,2 +1,2 @@
-insert into user values('lola', 'lola1');
-insert into user values('karen', 'karen2');
+insert into soapuser values('lola', 'lola1');
+insert into soapuser values('karen', 'karen2');
