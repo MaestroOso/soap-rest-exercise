@@ -3,6 +3,8 @@ package maestrooso.projects.soap.rest.soapconfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import maestrooso.projects.soap.rest.database.entities.User;
+import maestrooso.projects.soap.rest.database.repository.UserRepository;
 import maestrooso.projects.soap.rest.soapclient.CreditCard;
 import maestrooso.projects.soap.rest.soapclient.CreditCardGetByUserCodeRequest;
 import maestrooso.projects.soap.rest.soapclient.CreditCardGetByUserCodeResponse;
@@ -21,17 +23,24 @@ public class SOAPDataCollector {
 	@Autowired 
 	private SOAPConnector soap;
 	
+	@Autowired
+	private UserRepository userRepository;
+	
 	private String url = "http://18.222.184.108:8080/ws/";
 	
 	public void retreiveData() {
 		/**
-		 *	Test User Login 
+		 *	User Login Info 
 		 **/
 		UserLoginRequest req = new UserLoginRequest();
 		req.setUsername("lola");
 		req.setPassword("lola1");
 		UserLoginResponse res = (UserLoginResponse)soap.callWebService(url, req);
-		
+		/** Store User on db */
+		User newUser = new User(res.getUser().getFullname(), res.getUser().getCode(),
+				res.getUser().getDocumentType().value(), res.getUser().getDocumentNumber());
+		userRepository.save(newUser);
+		/** Print on screen*/
 		System.out.println("Datos del usuario: ");
 		System.out.println(res.getUser().getFullname());
 		System.out.println(res.getUser().getDocumentNumber());
@@ -40,7 +49,7 @@ public class SOAPDataCollector {
 		
 		
 		/**
-		 *	Test Credit Card by User Code 
+		 *  Credit Card by User Code 
 		 **/
 		CreditCardGetByUserCodeRequest creditCardReq = new CreditCardGetByUserCodeRequest();
 		creditCardReq.setCode(res.getUser().getCode());

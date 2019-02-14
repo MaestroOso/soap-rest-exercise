@@ -11,7 +11,7 @@ create table User(
 	documentNumber varchar(100)
 );
 
-create table CreditCard(
+create table Creditcard(
 	token varchar(100),
 	number varchar(100),
 	expDate date,
@@ -20,6 +20,6 @@ create table CreditCard(
 
 create table Movement(
 	amount decimal(10,10),
-	date varchar(100),
+	date date,
 	type varchar(100)
 );
