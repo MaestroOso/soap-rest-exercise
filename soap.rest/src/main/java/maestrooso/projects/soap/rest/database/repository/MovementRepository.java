@@ -10,4 +10,6 @@ import maestrooso.projects.soap.rest.database.entities.Movement;
 @Component
 public interface MovementRepository extends CrudRepository<Movement, Long>{
 	List<Movement> findAll();
+	
+	Movement findOneById(Long Id);
 }
