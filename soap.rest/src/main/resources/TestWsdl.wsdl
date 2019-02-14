@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.peiky.com/payment" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.peiky.com/payment" targetNamespace="http://www.peiky.com/payment">
+  <wsdl:types>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.peiky.com/payment">
+    <xs:element name="UserLoginRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="username" type="xs:string"/>
+                <xs:element name="password" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+ 
+    <xs:element name="UserLoginResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="user" type="tns:User"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="CreditCardGetByUserCodeRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="code" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+ 
+    <xs:element name="CreditCardGetByUserCodeResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" name="creditCards" type="tns:CreditCard"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="MovementGetByUserCodeRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="code" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+ 
+    <xs:element name="MovementGetByUserCodeResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" name="creditCards" type="tns:CreditCardWithMovements"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="MovementGetByCreditCardTokenRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="token" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+ 
+    <xs:element name="MovementGetByCreditCardTokenResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" name="movements" type="tns:Movement"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+ 
+    <xs:complexType name="User">
+		<xs:attribute name="fullname" type="xs:string"/>
+        <xs:attribute name="code" type="xs:string"/>
+        <xs:attribute name="documentType" type="tns:DocumentType"/>
+        <xs:attribute name="documentNumber" type="xs:string"/>
+    </xs:complexType>
+    
+    <xs:complexType name="CreditCardWithMovements">
+        <xs:sequence>
+			<xs:element maxOccurs="unbounded" name="movements" type="tns:Movement"/>
+		</xs:sequence>
+		<xs:attribute name="token" type="xs:string"/>
+        <xs:attribute name="number" type="xs:string"/>
+        <xs:attribute name="expDate" type="xs:string"/>
+        <xs:attribute name="franchise" type="tns:Franchise"/>
+    </xs:complexType>
+ 
+    <xs:complexType name="CreditCard">
+		<xs:attribute name="token" type="xs:string"/>
+        <xs:attribute name="number" type="xs:string"/>
+        <xs:attribute name="expDate" type="xs:string"/>
+        <xs:attribute name="franchise" type="tns:Franchise"/>
+    </xs:complexType>
+ 
+    <xs:complexType name="Movement">
+		<xs:attribute name="amount" type="xs:decimal"/>
+        <xs:attribute name="date" type="xs:date"/>
+        <xs:attribute name="type" type="tns:MovementType"/>
+    </xs:complexType>
+     
+    <xs:simpleType name="DocumentType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="CC"/>
+            <xs:enumeration value="CE"/>
+            <xs:enumeration value="PASS"/>
+        </xs:restriction>
+    </xs:simpleType>
+     
+    <xs:simpleType name="Franchise">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="VISA"/>
+            <xs:enumeration value="MASTERCARD"/>
+            <xs:enumeration value="AMEX"/>
+        </xs:restriction>
+    </xs:simpleType>
+     
+    <xs:simpleType name="MovementType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="PAGO"/>
+            <xs:enumeration value="ABONO"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="MovementGetByCreditCardTokenResponse">
+    <wsdl:part element="tns:MovementGetByCreditCardTokenResponse" name="MovementGetByCreditCardTokenResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="MovementGetByCreditCardTokenRequest">
+    <wsdl:part element="tns:MovementGetByCreditCardTokenRequest" name="MovementGetByCreditCardTokenRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CreditCardGetByUserCodeResponse">
+    <wsdl:part element="tns:CreditCardGetByUserCodeResponse" name="CreditCardGetByUserCodeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="MovementGetByUserCodeResponse">
+    <wsdl:part element="tns:MovementGetByUserCodeResponse" name="MovementGetByUserCodeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UserLoginRequest">
+    <wsdl:part element="tns:UserLoginRequest" name="UserLoginRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CreditCardGetByUserCodeRequest">
+    <wsdl:part element="tns:CreditCardGetByUserCodeRequest" name="CreditCardGetByUserCodeRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UserLoginResponse">
+    <wsdl:part element="tns:UserLoginResponse" name="UserLoginResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="MovementGetByUserCodeRequest">
+    <wsdl:part element="tns:MovementGetByUserCodeRequest" name="MovementGetByUserCodeRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="TestResource">
+    <wsdl:operation name="MovementGetByCreditCardToken">
+      <wsdl:input message="tns:MovementGetByCreditCardTokenRequest" name="MovementGetByCreditCardTokenRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:MovementGetByCreditCardTokenResponse" name="MovementGetByCreditCardTokenResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreditCardGetByUserCode">
+      <wsdl:input message="tns:CreditCardGetByUserCodeRequest" name="CreditCardGetByUserCodeRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:CreditCardGetByUserCodeResponse" name="CreditCardGetByUserCodeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MovementGetByUserCode">
+      <wsdl:input message="tns:MovementGetByUserCodeRequest" name="MovementGetByUserCodeRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:MovementGetByUserCodeResponse" name="MovementGetByUserCodeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserLogin">
+      <wsdl:input message="tns:UserLoginRequest" name="UserLoginRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:UserLoginResponse" name="UserLoginResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TestResourceSoap11" type="tns:TestResource">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="MovementGetByCreditCardToken">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="MovementGetByCreditCardTokenRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="MovementGetByCreditCardTokenResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreditCardGetByUserCode">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="CreditCardGetByUserCodeRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="CreditCardGetByUserCodeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MovementGetByUserCode">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="MovementGetByUserCodeRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="MovementGetByUserCodeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserLogin">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="UserLoginRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="UserLoginResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TestResourceService">
+    <wsdl:port binding="tns:TestResourceSoap11" name="TestResourceSoap11">
+      <soap:address location="http://18.222.184.108:8080/ws/test/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

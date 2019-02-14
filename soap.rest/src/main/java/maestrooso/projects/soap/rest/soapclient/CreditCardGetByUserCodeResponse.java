@@ -1,5 +1,5 @@
 
-package maestrooso.projects.soap.rest.payment;
+package maestrooso.projects.soap.rest.soapclient;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="creditCards" type="{http://www.peiky.com/payment}CreditCardWithMovements" maxOccurs="unbounded"/&gt;
+ *         &lt;element name="creditCards" type="{http://www.peiky.com/payment}CreditCard" maxOccurs="unbounded"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -33,11 +33,11 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "creditCards"
 })
-@XmlRootElement(name = "MovementGetByUserCodeResponse")
-public class MovementGetByUserCodeResponse {
+@XmlRootElement(name = "CreditCardGetByUserCodeResponse")
+public class CreditCardGetByUserCodeResponse {
 
     @XmlElement(required = true)
-    protected List<CreditCardWithMovements> creditCards;
+    protected List<CreditCard> creditCards;
 
     /**
      * Gets the value of the creditCards property.
@@ -57,13 +57,13 @@ public class MovementGetByUserCodeResponse {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link CreditCardWithMovements }
+     * {@link CreditCard }
      * 
      * 
      */
-    public List<CreditCardWithMovements> getCreditCards() {
+    public List<CreditCard> getCreditCards() {
         if (creditCards == null) {
-            creditCards = new ArrayList<CreditCardWithMovements>();
+            creditCards = new ArrayList<CreditCard>();
         }
         return this.creditCards;
     }

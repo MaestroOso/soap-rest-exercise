@@ -1,39 +1,37 @@
 
-package maestrooso.projects.soap.rest.payment;
+package maestrooso.projects.soap.rest.soapclient;
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para DocumentType.
+ * <p>Clase Java para MovementType.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * <p>
  * <pre>
- * &lt;simpleType name="DocumentType"&gt;
+ * &lt;simpleType name="MovementType"&gt;
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *     &lt;enumeration value="CC"/&gt;
- *     &lt;enumeration value="CE"/&gt;
- *     &lt;enumeration value="PASS"/&gt;
+ *     &lt;enumeration value="PAGO"/&gt;
+ *     &lt;enumeration value="ABONO"/&gt;
  *   &lt;/restriction&gt;
  * &lt;/simpleType&gt;
  * </pre>
  * 
  */
-@XmlType(name = "DocumentType")
+@XmlType(name = "MovementType")
 @XmlEnum
-public enum DocumentType {
+public enum MovementType {
 
-    CC,
-    CE,
-    PASS;
+    PAGO,
+    ABONO;
 
     public String value() {
         return name();
     }
 
-    public static DocumentType fromValue(String v) {
+    public static MovementType fromValue(String v) {
         return valueOf(v);
     }
 

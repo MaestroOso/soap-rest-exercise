@@ -1,5 +1,5 @@
 
-package maestrooso.projects.soap.rest.payment;
+package maestrooso.projects.soap.rest.soapclient;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -31,8 +31,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "code"
 })
-@XmlRootElement(name = "CreditCardGetByUserCodeRequest")
-public class CreditCardGetByUserCodeRequest {
+@XmlRootElement(name = "MovementGetByUserCodeRequest")
+public class MovementGetByUserCodeRequest {
 
     @XmlElement(required = true)
     protected String code;

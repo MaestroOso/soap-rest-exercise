@@ -1,5 +1,5 @@
 
-package maestrooso.projects.soap.rest.payment;
+package maestrooso.projects.soap.rest.soapclient;
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;

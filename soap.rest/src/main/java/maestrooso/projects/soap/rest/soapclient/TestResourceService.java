@@ -1,4 +1,4 @@
-package maestrooso.projects.soap.rest.payment;
+package maestrooso.projects.soap.rest.soapclient;
 
 import java.net.MalformedURLException;
 import java.net.URL;

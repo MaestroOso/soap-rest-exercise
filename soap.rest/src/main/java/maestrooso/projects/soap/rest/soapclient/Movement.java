@@ -1,5 +1,5 @@
 
-package maestrooso.projects.soap.rest.payment;
+package maestrooso.projects.soap.rest.soapclient;
 
 import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlAccessType;

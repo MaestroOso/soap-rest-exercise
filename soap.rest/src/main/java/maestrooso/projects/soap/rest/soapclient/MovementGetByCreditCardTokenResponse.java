@@ -1,5 +1,5 @@
 
-package maestrooso.projects.soap.rest.payment;
+package maestrooso.projects.soap.rest.soapclient;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="creditCards" type="{http://www.peiky.com/payment}CreditCard" maxOccurs="unbounded"/&gt;
+ *         &lt;element name="movements" type="{http://www.peiky.com/payment}Movement" maxOccurs="unbounded"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -31,41 +31,41 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "creditCards"
+    "movements"
 })
-@XmlRootElement(name = "CreditCardGetByUserCodeResponse")
-public class CreditCardGetByUserCodeResponse {
+@XmlRootElement(name = "MovementGetByCreditCardTokenResponse")
+public class MovementGetByCreditCardTokenResponse {
 
     @XmlElement(required = true)
-    protected List<CreditCard> creditCards;
+    protected List<Movement> movements;
 
     /**
-     * Gets the value of the creditCards property.
+     * Gets the value of the movements property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the creditCards property.
+     * This is why there is not a <CODE>set</CODE> method for the movements property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getCreditCards().add(newItem);
+     *    getMovements().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link CreditCard }
+     * {@link Movement }
      * 
      * 
      */
-    public List<CreditCard> getCreditCards() {
-        if (creditCards == null) {
-            creditCards = new ArrayList<CreditCard>();
+    public List<Movement> getMovements() {
+        if (movements == null) {
+            movements = new ArrayList<Movement>();
         }
-        return this.creditCards;
+        return this.movements;
     }
 
 }

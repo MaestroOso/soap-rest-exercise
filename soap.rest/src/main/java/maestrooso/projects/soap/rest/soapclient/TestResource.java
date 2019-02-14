@@ -1,4 +1,4 @@
-package maestrooso.projects.soap.rest.payment;
+package maestrooso.projects.soap.rest.soapclient;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;

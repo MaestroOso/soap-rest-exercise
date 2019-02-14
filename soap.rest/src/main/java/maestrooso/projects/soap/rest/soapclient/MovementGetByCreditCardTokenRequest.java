@@ -1,5 +1,5 @@
 
-package maestrooso.projects.soap.rest.payment;
+package maestrooso.projects.soap.rest.soapclient;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="code" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="token" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -29,36 +29,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "code"
+    "token"
 })
-@XmlRootElement(name = "MovementGetByUserCodeRequest")
-public class MovementGetByUserCodeRequest {
+@XmlRootElement(name = "MovementGetByCreditCardTokenRequest")
+public class MovementGetByCreditCardTokenRequest {
 
     @XmlElement(required = true)
-    protected String code;
+    protected String token;
 
     /**
-     * Obtiene el valor de la propiedad code.
+     * Obtiene el valor de la propiedad token.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getCode() {
-        return code;
+    public String getToken() {
+        return token;
     }
 
     /**
-     * Define el valor de la propiedad code.
+     * Define el valor de la propiedad token.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setCode(String value) {
-        this.code = value;
+    public void setToken(String value) {
+        this.token = value;
     }
 
 }
