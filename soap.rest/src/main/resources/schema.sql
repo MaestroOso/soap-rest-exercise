@@ -14,7 +14,7 @@ create table User(
 create table Creditcard(
 	token varchar(100),
 	number varchar(100),
-	expDate date,
+	expDate varchar(100),
 	franchise varchar(100)
 );
 

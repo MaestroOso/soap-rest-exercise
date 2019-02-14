@@ -1,9 +1,13 @@
 package maestrooso.projects.soap.rest.soapconfig;
 
+import java.sql.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import maestrooso.projects.soap.rest.database.entities.User;
+import maestrooso.projects.soap.rest.database.repository.CreditCardRepository;
+import maestrooso.projects.soap.rest.database.repository.MovementRepository;
 import maestrooso.projects.soap.rest.database.repository.UserRepository;
 import maestrooso.projects.soap.rest.soapclient.CreditCard;
 import maestrooso.projects.soap.rest.soapclient.CreditCardGetByUserCodeRequest;
@@ -25,6 +29,12 @@ public class SOAPDataCollector {
 	
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private MovementRepository movementRepository;
+	
+	@Autowired
+	private CreditCardRepository creditCardRepository;
 	
 	private String url = "http://18.222.184.108:8080/ws/";
 	
@@ -57,9 +67,16 @@ public class SOAPDataCollector {
 		
 		System.out.println("Cantidad de Tarjetas del usuario: " + res.getUser().getFullname() +": "+ creditCardRes.getCreditCards().size());
 		for(CreditCard c: creditCardRes.getCreditCards()) {
+			/**Store Credit Card on db*/
+			maestrooso.projects.soap.rest.database.entities.CreditCard newCC = 
+					new maestrooso.projects.soap.rest.database.entities.CreditCard(c.getToken(),
+							c.getNumber(),c.getExpDate(),c.getFranchise().value());
+			creditCardRepository.save(newCC);
+			/**Print on Console*/
 			System.out.println("Tarjeta: " + c.getNumber() + ", " + c.getFranchise().value() + 
 					", " + c.getExpDate() + ", " + c.getFranchise().value());
 		}
+		
 		
 		/**
 		 *	Test Movement Get By User Code
@@ -72,6 +89,13 @@ public class SOAPDataCollector {
 		for(CreditCardWithMovements c: movementUserRes.getCreditCards()) {
 			System.out.println("Movimientos para la tarjeta " + c.getNumber());
 			for(Movement m: c.getMovements()) {
+				/**Store Movement on db*/
+				java.util.Date dt = m.getDate().toGregorianCalendar().getTime();
+				maestrooso.projects.soap.rest.database.entities.Movement newM = 
+						new maestrooso.projects.soap.rest.database.entities.Movement(m.getAmount(), 
+								new Date(dt.getTime()), m.getType().value());
+				movementRepository.save(newM);
+				/**Print on console*/
 				System.out.println("Movimiento: " + m.getType().value() + " de " + m.getAmount() + " el " + m.getDate());
 			}
 		}

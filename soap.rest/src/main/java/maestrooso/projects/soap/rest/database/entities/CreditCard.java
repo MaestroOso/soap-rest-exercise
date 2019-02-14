@@ -12,10 +12,10 @@ public class CreditCard {
 	private String token;
 	@Id
 	private String number;
-	private Date expDate;
+	private String expDate;
 	private String franchise;
 	
-	public CreditCard(String token, String number, Date expDate, String franchise) {
+	public CreditCard(String token, String number, String expDate, String franchise) {
 		super();
 		this.token = token;
 		this.number = number;
@@ -41,11 +41,11 @@ public class CreditCard {
 		this.number = number;
 	}
 
-	public Date getExpDate() {
+	public String getExpDate() {
 		return expDate;
 	}
 
-	public void setExpDate(Date expDate) {
+	public void setExpDate(String expDate) {
 		this.expDate = expDate;
 	}
 
