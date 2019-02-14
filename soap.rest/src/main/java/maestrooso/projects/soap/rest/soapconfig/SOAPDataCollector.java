@@ -38,13 +38,13 @@ public class SOAPDataCollector {
 	
 	private String url = "http://18.222.184.108:8080/ws/";
 	
-	public void retreiveData() {
+	public void retreiveData(String username, String password) {
 		/**
 		 *	User Login Info 
 		 **/
 		UserLoginRequest req = new UserLoginRequest();
-		req.setUsername("lola");
-		req.setPassword("lola1");
+		req.setUsername(username);
+		req.setPassword(password);
 		UserLoginResponse res = (UserLoginResponse)soap.callWebService(url, req);
 		/** Store User on db */
 		User newUser = new User(res.getUser().getFullname(), res.getUser().getCode(),

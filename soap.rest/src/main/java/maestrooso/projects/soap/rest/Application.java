@@ -42,7 +42,8 @@ public class Application {
 	
 	@PostConstruct
 	public void printInfo() {
-		dataCollector.retreiveData();
+		dataCollector.retreiveData("lola", "lola1");
+		dataCollector.retreiveData("karen", "karen2");
 	}
 	
 }

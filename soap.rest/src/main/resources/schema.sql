@@ -1,9 +1,3 @@
-create table soapuser(
-	username varchar(100) not null,
-	password varchar(100) not null,
-	primary key(username)
-);
-
 create table User(
 	fullname varchar(100),
 	code varchar(100),
