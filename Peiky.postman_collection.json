@@ -1,0 +1,269 @@
+{
+	"info": {
+		"_postman_id": "2bb33bd9-1156-4163-9aaa-4f007ac77aa0",
+		"name": "Peiky",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Movement",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/movement/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"movement",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Movement",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":3,\n\t\"amount\": 12000,\n\t\"date\": \"2018-12-10\",\n\t\"type\":\"PAGO\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/movement/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"movement",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Movement",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":10,\n\t\"amount\": 18000,\n\t\"date\": \"2018-12-15\",\n\t\"type\":\"PAGO\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/movement/update",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"movement",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Movement",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/movement/delete/10",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"movement",
+						"delete",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Movement",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/movement/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"movement",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get CreditCard",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/creditcard/4485962511398486",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"creditcard",
+						"4485962511398486"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Credit Card",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"token\": \"bbc340adc90e42da844af050a5f338d6\",\n    \"number\": \"4485962511666486\",\n    \"expDate\": \"11/2066\",\n    \"franchise\": \"MASTERCARD\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/creditcard/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"creditcard",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Credit Card",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"token\": \"bbc340adc90e42da844af050a5f338d6\",\n    \"number\": \"4485962511666486\",\n    \"expDate\": \"11/2066\",\n    \"franchise\": \"VISA\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/creditcard/update",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"creditcard",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Credit Card",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/creditcard/delete/4485962511666486",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"creditcard",
+						"delete",
+						"4485962511666486"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Credit Cards",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/creditcard/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"creditcard",
+						"all"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
