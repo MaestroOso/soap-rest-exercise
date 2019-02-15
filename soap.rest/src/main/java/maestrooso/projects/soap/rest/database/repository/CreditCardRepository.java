@@ -10,4 +10,6 @@ import maestrooso.projects.soap.rest.database.entities.CreditCard;
 @Component
 public interface CreditCardRepository extends CrudRepository<CreditCard, Long>{
 	List<CreditCard> findAll();
+	
+	CreditCard findOneByNumber(String number);
 }
