@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import maestrooso.projects.soap.rest.database.entities.CreditCard;
 import maestrooso.projects.soap.rest.database.repository.CreditCardRepository;
+import maestrooso.projects.soap.rest.webservice.core.Messages;
 import maestrooso.projects.soap.rest.webservice.models.CreditCardModel;
 
 @Component
@@ -30,7 +31,7 @@ public class CreditCardBusiness {
 		newCC.setNumber(model.getNumber());
 		newCC.setToken(model.getToken());
 		creditCardRepository.save(newCC);
-		return "Succesful";
+		return Messages.Succesful;
 	}
 	
 	public String updateCreditCard(CreditCardModel model) {
@@ -39,17 +40,18 @@ public class CreditCardBusiness {
 			newCC.setExpDate(model.getExpDate());
 			newCC.setFranchise(model.getFranchise());
 			newCC.setToken(model.getToken());
-			return "SUCCESFUL";
+			creditCardRepository.save(newCC);
+			return Messages.Succesful;
 		}
-		return "ERROR";
+		return Messages.Error;
 	}
 	
 	public String deleteCreditCard(String number) {
 		CreditCard newCC = creditCardRepository.findOneByNumber(number);
 		if(newCC != null) {
 			creditCardRepository.delete(newCC);
-			return "SUCCESFUL";
+			return Messages.Succesful;
 		}
-		return "ERROR";
+		return Messages.Error;
 	}
 }

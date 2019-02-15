@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import maestrooso.projects.soap.rest.database.entities.Movement;
 import maestrooso.projects.soap.rest.database.repository.MovementRepository;
+import maestrooso.projects.soap.rest.webservice.core.Messages;
 import maestrooso.projects.soap.rest.webservice.models.MovementModel;
 
 @Component
@@ -32,7 +33,7 @@ public class MovementBusiness {
 		newMovement.setDate(m.getDate());
 		newMovement.setType(m.getType());
 		movementRepository.save(newMovement);
-		return "Movement Created Succesfully";
+		return Messages.Succesful;
 	}
 	
 	public String updateMovement(MovementModel m) {
@@ -42,18 +43,18 @@ public class MovementBusiness {
 			movement.setDate(m.getDate());
 			movement.setType(m.getType());
 			movementRepository.save(movement);
-			return "Succesful";
+			return Messages.Succesful;
 		}
-		return "Movement Doesn't Exist";
+		return Messages.Error;
 	}
 	
 	public String deleteMovement(Long id) {
 		Movement movement = movementRepository.findOneById(id);
 		if(movement != null) {
 			movementRepository.delete(movement);
-			return "Succesful";
+			return Messages.Succesful;
 		}
-		return "Movement Doesn't Exist";
+		return Messages.Error;
 	}
 	
 }

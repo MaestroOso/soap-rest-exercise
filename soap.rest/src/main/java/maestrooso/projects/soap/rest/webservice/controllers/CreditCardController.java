@@ -41,7 +41,7 @@ public class CreditCardController {
 		return creditCardBusiness.updateCreditCard(model);
 	}
 	
-	@PostMapping("/delete/{id}")
+	@PostMapping("/delete/{number}")
 	public String deleteCreditCard(@PathVariable String number) {
 		return creditCardBusiness.deleteCreditCard(number);
 	}
