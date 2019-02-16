@@ -32,6 +32,11 @@ public class MovementController {
 		return movementBusiness.movementInfoById(id);
 	}
 	
+	@GetMapping("/creditcard/{number}")
+	List<Movement> findByCreditCard(@PathVariable String number) {
+		return movementBusiness.findByCreditCard(number);
+	}
+	
 	@PostMapping("/create")
 	String createMovement(@RequestBody MovementModel model) {
 		return movementBusiness.createMovement(model);

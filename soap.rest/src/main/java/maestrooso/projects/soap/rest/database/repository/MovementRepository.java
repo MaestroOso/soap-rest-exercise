@@ -12,4 +12,6 @@ public interface MovementRepository extends CrudRepository<Movement, Long>{
 	List<Movement> findAll();
 	
 	Movement findOneById(Long Id);
+	
+	List<Movement> findByCreditCardNumber(String creditCardNumber);
 }

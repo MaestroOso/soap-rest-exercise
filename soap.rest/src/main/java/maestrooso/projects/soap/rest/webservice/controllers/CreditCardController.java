@@ -31,6 +31,11 @@ public class CreditCardController {
 		return creditCardBusiness.findById(number);
 	}
 	
+	@GetMapping("/user/{number}")
+	public List<CreditCard> findByUser(@PathVariable String number){
+		return creditCardBusiness.findByUserDocumentNumber(number);
+	}
+	
 	@PostMapping("/create")
 	public String createCreditCard(@RequestBody CreditCardModel model) {
 		return creditCardBusiness.createCreditCard(model);

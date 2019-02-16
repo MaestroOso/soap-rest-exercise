@@ -54,4 +54,8 @@ public class CreditCardBusiness {
 		}
 		return Messages.Error;
 	}
+	
+	public List<CreditCard> findByUserDocumentNumber(String number){
+		return creditCardRepository.findByUserDocumentNumber(number);
+	}
 }

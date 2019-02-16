@@ -12,4 +12,6 @@ public interface CreditCardRepository extends CrudRepository<CreditCard, Long>{
 	List<CreditCard> findAll();
 	
 	CreditCard findOneByNumber(String number);
+	
+	List<CreditCard> findByUserDocumentNumber(String userDocumentNumber);
 }

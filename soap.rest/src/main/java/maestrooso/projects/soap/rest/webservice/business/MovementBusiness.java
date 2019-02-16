@@ -57,4 +57,8 @@ public class MovementBusiness {
 		return Messages.Error;
 	}
 	
+	public List<Movement> findByCreditCard(String number){
+		return movementRepository.findByCreditCardNumber(number);
+	}
+	
 }
