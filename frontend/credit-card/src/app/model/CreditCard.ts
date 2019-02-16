@@ -3,4 +3,5 @@ export class CreditCard {
   number: string;
   expDate: string;
   franchise: string;
+  userDocumentNumber: string;
 }

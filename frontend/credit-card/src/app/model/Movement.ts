@@ -1,6 +1,7 @@
 export class CreditCard {
   token: number;
   number: number;
-  expDate: date;
+  expDate: Date;
   franchise: string;
+  creditCardNumber: string;
 }
