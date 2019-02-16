@@ -1,18 +1,27 @@
 package maestrooso.projects.soap.rest.database.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "User")
 public class User {
+
 	private String fullname;
+
 	private String code;
+
 	private String documentType;
-	@Id
+
 	private String documentNumber;
-	
+		
 	public User(String fullname, String code, String documentType, String documentNumber) {
 		super();
 		this.fullname = fullname;
@@ -22,7 +31,9 @@ public class User {
 	}
 
 	public User() {}
-
+	
+	@Basic
+	@Column(name = "fullname", nullable = true, length = 50)
 	public String getFullname() {
 		return fullname;
 	}
@@ -30,7 +41,9 @@ public class User {
 	public void setFullname(String fullname) {
 		this.fullname = fullname;
 	}
-
+	
+	@Basic
+	@Column(name = "code", nullable = true, length = 50)
 	public String getCode() {
 		return code;
 	}
@@ -38,7 +51,9 @@ public class User {
 	public void setCode(String code) {
 		this.code = code;
 	}
-
+	
+	@Basic
+	@Column(name = "documenttype", nullable = true, length = 50)
 	public String getDocumentType() {
 		return documentType;
 	}
@@ -46,7 +61,9 @@ public class User {
 	public void setDocumentType(String documentType) {
 		this.documentType = documentType;
 	}
-
+	
+	@Id
+	@Column(name = "documentnumber", nullable = false)
 	public String getDocumentNumber() {
 		return documentNumber;
 	}
@@ -54,4 +71,5 @@ public class User {
 	public void setDocumentNumber(String documentNumber) {
 		this.documentNumber = documentNumber;
 	}
+	
 }

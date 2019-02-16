@@ -70,7 +70,7 @@ public class SOAPDataCollector {
 			/**Store Credit Card on db*/
 			maestrooso.projects.soap.rest.database.entities.CreditCard newCC = 
 					new maestrooso.projects.soap.rest.database.entities.CreditCard(c.getToken(),
-							c.getNumber(),c.getExpDate(),c.getFranchise().value());
+							c.getNumber(),c.getExpDate(),c.getFranchise().value(), newUser.getDocumentNumber());
 			creditCardRepository.save(newCC);
 			/**Print on Console*/
 			System.out.println("Tarjeta: " + c.getNumber() + ", " + c.getFranchise().value() + 
@@ -93,7 +93,7 @@ public class SOAPDataCollector {
 				java.util.Date dt = m.getDate().toGregorianCalendar().getTime();
 				maestrooso.projects.soap.rest.database.entities.Movement newM = 
 						new maestrooso.projects.soap.rest.database.entities.Movement(m.getAmount(), 
-								new Date(dt.getTime()), m.getType().value());
+								new Date(dt.getTime()), m.getType().value(), c.getNumber());
 				movementRepository.save(newM);
 				/**Print on console*/
 				System.out.println("Movimiento: " + m.getType().value() + " de " + m.getAmount() + " el " + m.getDate());

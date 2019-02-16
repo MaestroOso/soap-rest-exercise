@@ -8,6 +8,8 @@ To open database console go to:
 http://localhost:8080/h2-console/
 ```
 
+Use jdbc:h2:mem:testdb as database url
+
 ### Server
 To run server go to soap.rest folder and execute
 ```

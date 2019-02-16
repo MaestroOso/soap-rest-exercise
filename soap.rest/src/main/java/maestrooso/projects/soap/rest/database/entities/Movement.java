@@ -17,13 +17,18 @@ public class Movement {
 	private BigDecimal amount;
 	private Date date;
 	private String type;
-	public Movement(BigDecimal amount, Date date, String type) {
-		super();
+	
+	private String creditCardNumber;
+	
+	
+	
+	public Movement(BigDecimal amount, Date date, String type, String creditCardNumber) {
 		this.amount = amount;
 		this.date = date;
 		this.type = type;
+		this.creditCardNumber = creditCardNumber;
 	}
-	
+
 	public Movement() {}
 
 	public BigDecimal getAmount() {
@@ -49,6 +54,13 @@ public class Movement {
 	public void setType(String type) {
 		this.type = type;
 	}
-	
+
+	public String getCreditCardNumber() {
+		return creditCardNumber;
+	}
+
+	public void setCreditCardNumber(String creditCardNumber) {
+		this.creditCardNumber = creditCardNumber;
+	}
 	
 }
