@@ -8,7 +8,16 @@ public class CreditCardModel {
 	private String number;
 	private String expDate;
 	private String franchise;
+	private String userDocumentNumber;
 	
+	
+	
+	public String getUserDocumentNumber() {
+		return userDocumentNumber;
+	}
+	public void setUserDocumentNumber(String userDocumentNumber) {
+		this.userDocumentNumber = userDocumentNumber;
+	}
 	public String getToken() {
 		return token;
 	}

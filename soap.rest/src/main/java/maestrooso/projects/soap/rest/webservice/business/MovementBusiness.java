@@ -2,13 +2,16 @@ package maestrooso.projects.soap.rest.webservice.business;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import maestrooso.projects.soap.rest.database.entities.CreditCard;
 import maestrooso.projects.soap.rest.database.entities.Movement;
+import maestrooso.projects.soap.rest.database.repository.CreditCardRepository;
 import maestrooso.projects.soap.rest.database.repository.MovementRepository;
 import maestrooso.projects.soap.rest.webservice.core.Messages;
 import maestrooso.projects.soap.rest.webservice.models.MovementModel;
@@ -18,6 +21,9 @@ public class MovementBusiness {
 	
 	@Autowired
 	private MovementRepository movementRepository;
+	
+	@Autowired
+	private CreditCardRepository creditCardRepository;
 	
 	public List<Movement> getAll(){
 		return movementRepository.findAll();
@@ -59,6 +65,19 @@ public class MovementBusiness {
 	
 	public List<Movement> findByCreditCard(String number){
 		return movementRepository.findByCreditCardNumber(number);
+	}
+	
+	public List<Movement> findByUser(String userDocumentNumber){
+		List<CreditCard> creditCards = creditCardRepository.findByUserDocumentNumber(userDocumentNumber);
+		List<Movement> movements = new ArrayList<Movement>();
+		for(CreditCard c: creditCards) {
+			String number = c.getNumber();
+			List<Movement> creditCardMovement = movementRepository.findByCreditCardNumber(number);
+			for(Movement m: creditCardMovement) {
+				movements.add(m);
+			}
+		}
+		return movements;
 	}
 	
 }

@@ -7,6 +7,16 @@ public class MovementModel {
 	private Double amount;
 	private Date date;
 	private String type;
+	private String creditCardNumber;
+	
+	
+	
+	public String getCreditCardNumber() {
+		return creditCardNumber;
+	}
+	public void setCreditCardNumber(String creditCardNumber) {
+		this.creditCardNumber = creditCardNumber;
+	}
 	public Long getId() {
 		return id;
 	}

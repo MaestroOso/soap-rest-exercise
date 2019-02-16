@@ -37,6 +37,11 @@ public class MovementController {
 		return movementBusiness.findByCreditCard(number);
 	}
 	
+	@GetMapping("/user/{documentnumber}")
+	List<Movement> findByUserDocumentNumber(@PathVariable String documentnumber) {
+		return movementBusiness.findByUser(documentnumber);
+	}
+	
 	@PostMapping("/create")
 	String createMovement(@RequestBody MovementModel model) {
 		return movementBusiness.createMovement(model);
