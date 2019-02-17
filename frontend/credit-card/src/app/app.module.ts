@@ -9,6 +9,8 @@ import { CreditCardComponentComponent } from './components/credit-card-component
 import { MovementComponentComponent } from './components/movement-component/movement-component.component';
 import { UserComponentComponent } from './components/user-component/user-component.component';
 
+import { MatTableModule } from '@angular/material';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,8 @@ import { UserComponentComponent } from './components/user-component/user-compone
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
