@@ -10,13 +10,15 @@ import { MovementComponentComponent } from './components/movement-component/move
 import { UserComponentComponent } from './components/user-component/user-component.component';
 
 import { MatTableModule } from '@angular/material';
+import { CompleteComponent } from './components/complete/complete.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreditCardComponentComponent,
     MovementComponentComponent,
-    UserComponentComponent
+    UserComponentComponent,
+    CompleteComponent
   ],
   imports: [
     BrowserModule,

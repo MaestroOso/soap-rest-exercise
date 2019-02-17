@@ -26,3 +26,10 @@ Client will run on
 ```
 http://localhost:4200
 ```
+
+Routes include:
+
+/all  ->  renders all three tables with information
+/users  -> renders all user information
+/creditcards  -> renders all creditcards information
+/movements  -> renders all movements information
