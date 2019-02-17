@@ -63,4 +63,8 @@ public class Movement {
 		this.creditCardNumber = creditCardNumber;
 	}
 	
+	public Long getId() {
+		return this.id;
+	}
+	
 }
