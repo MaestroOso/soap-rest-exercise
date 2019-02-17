@@ -1,3 +1,30 @@
-<p>
-  credit-card-component works!
-</p>
+<h2>Credit Card</h2>
+  <mat-table #table [dataSource]="creditcards">
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+
+    <ng-container matColumnDef="number">
+      <th mat-header-cell *matHeaderCellDef> Number </th>
+      <td mat-cell *matCellDef="let c"> {{c.number}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="franchise">
+      <th mat-header-cell *matHeaderCellDef> Franchise </th>
+      <td mat-cell *matCellDef="let c"> {{c.franchise}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="token">
+      <th mat-header-cell *matHeaderCellDef> Token </th>
+      <td mat-cell *matCellDef="let c"> {{c.token}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="userDocumentNumber">
+      <th mat-header-cell *matHeaderCellDef> User Number </th>
+      <td mat-cell *matCellDef="let c"> {{c.userDocumentNumber}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="expDate">
+      <th mat-header-cell *matHeaderCellDef> Exp Date </th>
+      <td mat-cell *matCellDef="let c"> {{c.expDate}} </td>
+    </ng-container>
+  </mat-table>
