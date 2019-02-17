@@ -24,4 +24,8 @@ export class MovementComponentComponent implements OnInit {
     });
   }
 
+  createMovement(){
+    alert("Creating Movement");
+  }
+
 }
